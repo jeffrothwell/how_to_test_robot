@@ -5,30 +5,38 @@ require './robot.rb'
 class TestRobot < MiniTest::Test
 
   def test_that_foreign_robot_needing_repairs_sent_to_station_1
-    skip
     # arrange
-
+    robot = Robot.new
+    robot.foreign_model=(true)
+    robot.needs_repairs=(true)
     # act
-
+    actual_value = robot.station
+    expected_value = 1
     # assert
+    assert_equal(expected_value, actual_value)
   end
 
   def test_that_vintage_robot_needing_repairs_sent_to_station_2
-    skip
     # arrange
-
+    robot = Robot.new
+    robot.vintage_model=(true)
+    robot.needs_repairs=(true)
     # act
-
+    actual_value = robot.station
+    expected_value = 2
     # assert
+    assert_equal(expected_value, actual_value)
   end
 
   def test_that_standard_robot_needing_repairs_sent_to_station_3
-    skip
     # arrange
-
+    robot = Robot.new
+    robot.needs_repairs=(true)
     # act
-
+    actual_value = robot.station
+    expected_value = 3
     # assert
+    assert_equal(expected_value, actual_value)
   end
 
   def test_that_robot_in_good_condition_sent_to_station_4
